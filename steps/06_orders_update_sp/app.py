@@ -23,7 +23,7 @@ def create_orders_table(session):
 
 def create_orders_stream(session):
     _ = session.sql("CREATE STREAM IF NOT EXISTS HARMONIZED.ORDERS_STREAM ON TABLE HARMONIZED.ORDERS \
-                    SHOW_INITIAL_ROWS = TRUE;").collect()
+                    SHOW_INITIAL_ROWS = FALSE;").collect()
 
 def merge_order_updates(session):
     _ = session.sql('ALTER WAREHOUSE HOL_WH SET WAREHOUSE_SIZE = XLARGE WAIT_FOR_COMPLETION = TRUE').collect()

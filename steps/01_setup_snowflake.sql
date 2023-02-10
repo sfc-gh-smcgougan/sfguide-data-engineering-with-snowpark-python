@@ -16,7 +16,7 @@ Last Updated: 1/1/2023
 -- ----------------------------------------------------------------------------
 -- Step #2: Create the account level objects
 -- ----------------------------------------------------------------------------
-USE ROLE ACCOUNTADMIN;
+USE ROLE DEMO_ADMIN_ROLE;
 
 -- Roles
 SET MY_USER = CURRENT_USER();
@@ -27,6 +27,7 @@ GRANT ROLE HOL_ROLE TO USER IDENTIFIER($MY_USER);
 GRANT EXECUTE TASK ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT MONITOR EXECUTION ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE HOL_ROLE;
+GRANT IMPORTED PRIVILEGES ON DATABASE FROSTBYTE_WEATHERSOURCE TO ROLE HOL_ROLE;
 
 -- Databases
 CREATE OR REPLACE DATABASE HOL_DB;
